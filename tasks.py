@@ -1,4 +1,4 @@
-from microsoftbotframework import ReplyToActivity
+#from microsoftbotframework import ReplyToActivity
 import requests
 
 
@@ -9,13 +9,21 @@ def echo_response(message):
 
 
 def cost_search(message):
-  res = requests.get("https://api.korbit.co.kr/v1/ticker")
-  res.json()
 
-  last = res['last']
-
-  msg = "last cost : {}".format(last)
-
+  msg = search()
   if message["type"] == "message" and message["text"] == "bitcoin":
     ReplyToActivity(fill=message,
                     text=msg).send()
+
+
+def search():
+  res = requests.get("https://api.korbit.co.kr/v1/ticker")
+
+  t = str(res.text)
+  res_dict = eval(t)
+
+  last = res_dict.get('last')
+
+  msg = "last cost : {}".format(last)
+  print msg
+  return msg
