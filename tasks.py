@@ -9,10 +9,9 @@ def echo_response(message):
 
 
 def cost_search(message):
-
-  msg = search()
   if message["type"] == "message":
     if message["text"] == "bitcoin":
+      msg = search()
       ReplyToActivity(fill=message,
                       text=msg).send()
     else:
