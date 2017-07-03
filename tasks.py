@@ -29,5 +29,5 @@ def search():
   last = res_dict.get('last')
 
   msg = "last cost : {}".format(last)
-  print msg
+  print (msg)
   return msg
