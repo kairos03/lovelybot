@@ -1,4 +1,4 @@
-#from microsoftbotframework import ReplyToActivity
+from microsoftbotframework import ReplyToActivity
 import requests
 
 
