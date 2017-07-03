@@ -1,6 +1,7 @@
 from microsoftbotframework import ReplyToActivity
 import requests
 
+
 def echo_response(message):
   if message["type"] == "message":
     ReplyToActivity(fill=message,
